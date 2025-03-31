@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 자바스크립트를 왜쓰냐 ?</h1>
+    <p id="이유"> html을 변경하려고 쓴다!</p>
+    <button onclick="document.getElementById('이유').innerHTML = 'html을 변경하려고 함!'"> 클릭 </button>
+    <button onclick="색깔변경()"> 색깔변경 </button>
+    <button onclick="document.getElementById('이유').style.fontSize = '20px'"> 폰트사이즈변경 </button>
+    <button onclick="글씨변경('안녕하세요')"> 글씨변경 </button>
+    <p id ="타입"> </p>
+    <p id ="for출력"></p>
+    <p id ="forEach출력"></p>
+    <p id ="map출력"></p>
+
+    <script>
+        // 자료 저장
+        var name = "홍길동";
+        var age = 20;
+        // var vs let vs const 
+        // var : 중복 선언 가능
+        // let : 중복 선언 불가능
+        // const : 중복 선언 불가능, 값 변경 불가능
+        console.log(name);
+        console.log(age);
+
+        function 색깔변경(){
+            // 현재 색상이 빨간색이면 파란색으로 변경
+            var currentColor = document.getElementById('이유').style.color;
+            if (currentColor === 'red') {
+                document.getElementById('이유').style.color = 'blue';
+            } else {
+                document.getElementById('이유').style.color = 'red';
+            }
+        }
+
+        //에로우 함수 사용
+        const 글씨변경 = (글씨) => {
+            document.getElementById('이유').innerHTML = 글씨;
+        }
+
+        // 배열 사용
+        var 배열 = [1, 2, 3, 4, 5];
+        console.log(배열[0]);
+        
+        // object 사용
+        var 객체 = {
+            name: "홍길동",
+            age: 20,
+            gender: "남",
+            address: "서울시 강남구"
+        }
+       
+        //if 조건문
+        if(객체.age > 19){
+            document.getElementById('타입').innerHTML = "성인";
+        }else{
+            document.getElementById('타입').innerHTML = "미성년자";
+        }
+        
+        //등호 개념 == vs ====
+        // == : 값만 비교
+        // === : 값과 타입 비교
+        var a = 1;
+        var b = "1";
+        console.log(a == b); // true
+        console.log(a === b); // false
+
+        // for 반복문
+        for(var i = 0; i < 5; i++){
+            document.getElementById('for출력').innerHTML += i + "<br>";
+        }
+
+        //forEach 반복문
+        var 배열 = [1, 2, 3, 4, 5];
+        [1, 2, 3, 4, 5].forEach(function(item){
+            document.getElementById('forEach출력').innerHTML += item + "<br>";
+        });
+
+        //map 반복문
+        var 배열2 = [1, 2, 3, 4, 5];
+        var 배열3 = 배열2.map(function(item){
+            return item * 2;
+        });
+        console.log(배열3);
+        document.getElementById('map출력').innerHTML = 배열3;
+
+    </script>
+</body>
+</html>
