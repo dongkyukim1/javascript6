@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This를 배워보자.</title>
+  </head>
+  <body>
+    <h1>This 는 첫번째로</h1>
+    <h3>window라는 기본함수다.</h3>
+    <br />
+    <br />
+    <h1>This 는 두번째로</h1>
+    <h3>오브젝트 안에서 그함수를 가지고있는 오브젝트를 뜻한다</h3>
+    <br />
+    <br />
+    <h1>* 함수나 변수는 {window}에서 보관됨</h1>
+    <h3>자바스크립트는 커다란 오브젝트라 생각하면됨 !</h3>
+    <script>
+      // strict 모드 -> 항상 데이터 타입을 정해야한다 x =300; 이건안되  1번에 (1)은 가능 한데 (2)는 언디파인드된다.
+      //"use strict";
+
+      //1번 기본함수 (1)
+      console.log(this);
+
+      //1번 기본함수 (2)
+      function 함수() {
+        console.log(this);
+      }
+
+      //2번 ! 오브젝트 내 THIS는  오브젝트를 뜻한다!
+      //var 오브젝트 = {
+      // data: "kim",
+      // 함수: function () {
+      //   console.log(this);
+      // }
+      var 오브젝트 = {
+        data: "kim",
+        함수: function () {
+          console.log(this);
+        },
+      };
+      오브젝트.함수();
+
+      //3번! function(){} 대신에 ()=>{} 에로우펑션은 this 는 window가 뜬다.
+      var 에로우펑션 = {
+        data: {
+          함수: () => {
+            console.log(this);
+          },
+        },
+      };
+      에로우펑션.data.함수();
+
+      //4번
+      var 생략 = {
+        data: {
+          함수() {
+            console.log(this);
+          },
+        },
+      };
+      생략.data.함수();
+    </script>
+  </body>
+</html>
