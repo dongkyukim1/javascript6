@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭</button>
+    <script>
+        //3번째 THIS의 뜻. 오브젝트 생성기계 (constructor)
+        // 기계 안에서 쓰면 새로 생성되는 오브젝트 this
+
+        var 어쩌구 = {}
+        function 기계(){
+            //여기서 디스는 오브젝트(instance) 라고한다.
+            this.이름 = 'Kim'
+            console.log(this) //Kim
+        }
+
+        var 오브젝트 = new 기계()
+        console.log(오브젝트)
+
+        // 4번째 이벤트리스너 this 뜻. 이벤트 리스너 안에서 쓰면 이벤트 리스너 자체를 의미
+        document.getElementById('btn').addEventListener('click', function(e){
+            console.log(this); 
+            console.log(e.currentTarget); //이거랑 똑같다.
+        })
+
+        //Case Study 1
+        var 어레이 = [1,2,3]
+        var 어레이2 = [4,5,6]
+       
+        //a는 콜백함수의 매개변수
+        //콜백함수는 함수안에 함수를 콜백함수라 한다.
+        어레이.forEach(function(a){
+            console.log(this) // window
+            console.log(a) // 1,2,3
+        })
+       // 중요 : 함수가 쓰인 위치따라 this가 달라진다.
+
+       //case study 2
+       var 오브젝트 = {
+        이름들: ['김', '이', '박'],
+        함수: function() {
+          console.log(this) // 오브젝트
+          this.이름들.forEach(function() {
+            console.log(this); // window
+          });
+        },
+      };
+      오브젝트.함수(); // 호출
+
+      //case study 3 -> 화살표함수는 외부 함수의 this를 참조한다.
+      var 오브젝트2 = {
+        이름들: ['김', '이', '박'],
+        함수: function() {
+          this.이름들.forEach(()=> {
+            console.log(this); // 오브젝트2
+          });
+        }
+      };
+      오브젝트2.함수(); // 호출
+      
+      
+    </script>
+  </body>
+</html>
