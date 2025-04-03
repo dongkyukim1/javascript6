@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeOut+callBack</title>
+  </head>
+  <button id="버튼">버튼이에요</button>
+
+  <script>
+    function 타임아웃() {
+      document.getElementById("버튼").addEventListener("click", function () {
+        console.log(this.innerHTML);
+      });
+    }
+    // 10초 -> 1초로 변경
+    setTimeout(타임아웃, 1000);
+  </script>
+</html>

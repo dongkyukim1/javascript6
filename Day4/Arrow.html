@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Funtion</title>
+  </head>
+
+  <body>
+    <button id="버튼">눌러라</button>
+    <script>
+      // ES6 에 에로우 함수 기본틀
+      // 장점 : 코드들의 기능으로 묶고싶은 때 사용 (함수의장점)
+      // 장점2 : 입출력 기계를 만들고싶을떄 활용 !!
+
+      //파라미터 1개면 소괄호 생략가능
+      //(1) 코드한줄이면 중괄호도 생략가능
+      var 함수 = (a) => a + 10;
+      console.log(함수(5));
+
+      //(2) 반복문에서 줄여버리기
+      [1, 2, 3, 4].forEach((a) => console.log(a));
+
+      //(3) 이벤트리스너 줄여버리기 * 외부에서 가져온 this 값을 사용하는게 아니라면 조심해라
+      document.getElementById("버튼").addEventListener("click", (a) => {
+        alert("하이");
+      });
+
+      //(4) 오브젝트에서
+      var 오브젝트 = {
+        함수: () => {},
+      };
+    </script>
+  </body>
+</html>
