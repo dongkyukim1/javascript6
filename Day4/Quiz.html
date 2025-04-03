@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>sayHi 예시</title>
+  </head>
+  <body>
+    <script>
+      var 사람 = {
+        name: "손흥민",
+        sayHi: function () {
+          console.log("안녕" + this.name + "이야");
+        },
+      };
+      사람.sayHi();
+    </script>
+    <script>
+      var 자료 = {
+        data: [1, 2, 3, 4, 5],
+        전부더하기: function (a, b, c, d, e) {
+          return a + b + c + d + e;
+        },
+      };
+      console.log(자료.전부더하기(1, 2, 3, 4, 5));
+    </script>
+    <script>
+      var 자료 = {
+        data: [1, 2, 3, 4, 5],
+      };
+
+      // 객체에 메서드 추가
+      자료.전부더하기 = function () {
+        let sum = 0;
+        for (let i = 0; i < this.data.length; i++) {
+          sum += this.data[i];
+        }
+        console.log(sum); // 함수 내부에서 출력
+      };
+
+      // 함수 호출
+      자료.전부더하기(); // 15
+    </script>
+  </body>
+</html>
