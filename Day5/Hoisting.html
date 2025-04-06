@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hoisting</h1>
+    <h2>변수의 선언을 변수 범위 맨위로 끌고오는 현상</h2>
+
+    <script>
+      // Hoisting (변수 호이스팅)
+      // Hoisting은 변수를 선언하기 전에 사용할 수 있는 자바스크립트의 특성입니다.
+
+      //var 나이;
+
+      console.log(나이); // undefined
+
+      var 나이 = 30;
+      //나이 = 30; //
+
+      console.log(나이); // 30
+    </script>
+    <script>
+      //변수 동시에 여러개 만들기 다됨
+      var 이름 = "홍길동",
+        나이 = 30,
+        성별 = "남자";
+      console.log(이름, 나이, 성별); // 홍길동 30 남자
+    </script>
+    <script>
+      //전역변수
+      var 성별 = "남자"; //1. 선언으로 만들기
+      function sayHello() {
+        console.log("안녕하세요! " + 성별);
+        var 이름 = "홍길동"; // 지역변수
+        console.log("안녕하세요! " + 이름); // 안녕하세요! 홍길동
+      }
+      sayHello(); // 안녕하세요! 남자
+
+      var 나이 = 20;
+      window.나이 = 30; // 2. window 로 전역변수 만들기
+      console.log(나이); // 30
+
+      //2번 방법이 더 많이 사용됨
+      //window.변수명 = 값; // 전역변수 만들기
+    </script>
+    <script>
+        //Question
+        if(true){
+            let a =1;
+            var b =2;
+            if(true){
+                let b =3
+            }
+            console.log(b); 
+        }
+    </script>
+  </body>
+</html>
