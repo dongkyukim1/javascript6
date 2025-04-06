@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Var_Let_Const</title>
+  </head>
+  <body>
+    <h1>Var, Let, Const</h1>
+    <div>
+      <h2>var</h2>
+      <h2>선언 => 재선언 O</h2>
+      <h2>할당 => 재할당 O</h2>
+      <h2>범위 => function</h2>
+    </div>
+    <br />
+    <div>
+      <h2>let</h2>
+      <h2>선언 => 재선언 X</h2>
+      <h2>할당 => 재할당 O</h2>
+      <h2>범위 => {}</h2>
+    </div>
+    <br />
+    <div>
+      <h2>const</h2>
+      <h2>선언 => 재선언 X</h2>
+      <h2>할당 => 재할당 X</h2>
+      <h2>범위 => {}</h2>
+    </div>
+    <script>
+      ///선언    할당
+      var 이름 = "홍길동";
+      var 이름 = "이순신"; // 재선언 가능
+      이름 = "강감찬"; // 재할당 가능
+      console.log(이름); // 이순신
+      function 함수() {
+        var 이름 = "이순신"; // 지역변수
+        console.log(이름); // 이순신
+      }
+
+      function 함수2() {
+        let 이름 = "강감찬"; // 지역변수
+        console.log(이름); // 강감찬
+      }
+
+      function 테스트() {
+        if (true) {
+          var a = 10;
+          let b = 20;
+        }
+
+        console.log(a); // 10 (var는 함수 전체에서 유효)
+        console.log(b); // ❌ 에러 (let은 블록 안에서만 유효)
+      }
+      
+      console.log(이름); // 강감찬
+      const 이름2 = { 이름: "홍길동" };
+      사람.이름2 = "park";
+      console.log(이름2); // {이름 : 'park'}
+      //재할당은 불가하지만 오브젝트안에 값을 변경 가능
+      Object.freeze(이름2); // 객체를 동결하여 변경 불가
+      //이름2.이름2 = 'kim' // TypeError: Cannot assign to read-only property '이름2' of object '#<Object>'
+    </script>
+  </body>
+</html>
