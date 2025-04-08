@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>템플렛리터럴2</title>
+  </head>
+  <body>
+    <script>
+      var pants = 0;
+      var socks = 100;
+      `바지${pants} 양말${socks}`;
+
+      function 해체분석기(글자들, 변수들1, 변수들2) {
+        console.log(글자들[1] + 변수들1 + 글자들[0] + 변수들2);
+      }
+
+      해체분석기`바지${pants} 양말${socks}`;
+      //바지의 갯수가 0개 '바지 안팔아요'
+
+      function 바지분석기(글자들, 바지수량, 양말수량) {
+        if (바지수량 === 0) {
+          console.log("바지 안팔아요" + ` 양말${양말수량}`);
+        } else {
+          console.log(`바지 ${바지수량}, 양말 ${양말수량}`);
+        }
+      }
+
+      // 이렇게 함수 호출
+      바지분석기`바지${pants} 양말${socks}`;
+
+      //중요한건 문자, 수량 ,수량 같이 이렇게 나눠진다는것
+      //ex 들어 피자 3개 치킨 3 개 도시락 3개면
+      // 종류 , 갯수1(피자),갯수2(치킨),갯수3(도시락) 이렇게 나눠지고
+      // 종류[0] 은 피자 ,[1]은치킨 [2]는 도시락이다
+    </script>
+  </body>
+</html>
