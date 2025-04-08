@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>템플릿리터럴</title>
+  </head>
+  <body>
+    <script>
+      var 문자 = "손흥민";
+      //백틱 백쿼트로 만드는방법 `` 물결무늬부분
+      var 문자1 = `덕
+        베`;
+      // 장점 1. 엔터키 가능
+      // 2. 중간중간 변수 넣기 쉬움
+      var 변수 = "케빈";
+      var 변수2 = "케인";
+      var 문자 = "안녕하세요" + 변수 + "저는";
+      var 쉽게 = `안녕하세요 저는 ${변수} `;
+      // HTML 작성시 유효
+      var 템플릿 = `<div>${변수}</div>`;
+      //backquote + 변수 tagged literal
+      function 해체분석기(문자들, 변수들) {
+        console.log([문자들[1] + 문자들[0]]);
+      }
+      해체분석기`안녕하세요 ${변수} 입니다 `;
+      //1. 문자들을 array 해줌
+      //2. 변수들을 정리해서줌
+
+      //실 사용기 입니다 ---> 안녕하세요 바꾸기 (위치)
+      function 해체분석기(문자들, 변수들) {
+        console.log([문자들[1] + 변수 + 문자들[0]]);
+      }
+    </script>
+  </body>
+</html>
