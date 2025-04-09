@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 점x3 붙이면 된다 ...
+      var 어레이 = ["hello", "world"];
+      // 1. 어레이에 붙이면 대괄호를 제거해준다.
+      console.log(...어레이); //hello world 된다. = console.log('hello','world')
+
+      // 2. 문자는 다 띄어쓰기 된다 'h''e''l''l''o'
+      var 문자 = "hello";
+      console.log(...문자);
+
+      // !!! 실 사용 (어레이 합치기/ 복사) !!!
+      var a = [1, 2, 3];
+      var b = [4, 5];
+
+      var c = [...a];
+      var d = [...a, ...b]; // [1,2,3,4,5]
+      console.log(d);
+
+      // 3. deep copy
+      var e = a;
+      a[3] = 4; //e에는 직접 추가하지 않았는데 4가 추가되버림 이게 문제임
+      // 값을 공유해버려서 완전 같은 변수가 되버림
+      var f = [...a];
+
+      a[4] = 5;
+      console.log(e);
+      console.log(f);
+
+      // 4. 오브젝트를 만들 때도 똑같은 문제와 해결방법이다
+      // 중괄호도 해체해버려/
+      // * 값중복이 있을수있다.
+      var o1 = { a: 1, b: 2 };
+      var o2 = { a: 2, ...o1 }; //이게 값 중복이니까 가장 뒤에 있는걸 적용해버림
+      //a : 1
+      console.log(o2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //함수 파라미터를 넣을떄
+      function 더하기(a, b, c) {
+        console.log(a + b + c);
+      }
+      var 예시 = [10, 20, 30];
+      더하기.apply(undefined, 예시); // apply 로 예전에는 했다.
+      더하기(...예시); // 이게 젠지씩 방법 간지난다.
+
+      //2에 적용하고싶다.
+      var person1 = {
+        인사: function () {
+          console.log(this.name + "안녕");
+        },
+      };
+      person1.인사(); //이건 undefined + 안녕
+
+      var person2 = {
+        name: "손흥민",
+      };
+
+      person1.인사.apply(person2); //이건 손흥민 + 안녕  이건 어레이 형태
+      person1.인사.call(person2); //call도 똑같은데 이건 숫자 형태
+    </script>
+  </body>
+</html>
