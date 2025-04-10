@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>파라미터를 다루는 젠지의 방법</title>
+  </head>
+  <body>
+    <!-- //arguments의 단점 -->
+    걍 쪼개고 해서 짜증남...
+
+    <script>
+      function quiz(a, b, c) {
+        for (var i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+      }
+      quiz(1, 2, 3, 4);
+
+      // 이거랑 똑같은  Reset 파라미터
+      //파라미터 자리에 들어온걸 다 어레이로 만들어버림
+      // 특정해서 담을수있음!
+      function 함수2(a, b, ...파라미터들) {
+        console.log(파라미터들);
+      }
+      함수2(1, 2, 3, 4, 5, 6); //[1,2,3,4,5,6]
+      //a,b 넣어버리면 [3,4,5,6]
+
+      // ** ...rest vs ...spread -> 함수 파라미터자리 vs 나머지
+
+      // 퀴즈 모든 파라미터들을 하나씩 콘솔창에 출력해주는 함수
+      function quiz2(...a) {
+        for (var i = 0; i < a.length; i++) {
+          console.log(a[i]);
+        }
+      }
+      quiz2(1, 2, 3, 4, 5, 6);
+
+      //...rest 는 마지막에 써야된다!!! 두번 세번도 못써
+    </script>
+  </body>
+</html>
