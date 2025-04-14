@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //quiz 1. 
+        var a =[1,2,3];
+        var b = '김밥';
+        var c = [...b,...a];
+        console.log(c); //[김밥,1,2,3]
+        // 정답은 ['김','밥',1,2,3]
+
+        // quiz2
+        var a = [1,2,3];
+        var b = ['you', 'are'];
+        var c = function(a,b){
+        console.log( [[...a], ...[...b]][1] )
+        }      //[1,2,3],...['you','are'][1]
+
+        c(a,b);
+
+        
+
+    </script>
+</body>
+</html>
