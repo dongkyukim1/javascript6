@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference data type</title>
+  </head>
+
+  <body>
+    <script>
+      var 이름1 = "김";
+      var 이름2 = 이름1;
+      이름1 = "박";
+      console.log(이름2); //김
+    </script>
+
+    <script>
+      let obj1 = { name: "김" }; //array, object는 변수에 저장이 아니라 (복사할때 매우 유의해야함)
+      let obj2 = obj1; // reference(화살표)에 pc메모리에있는 값으로가는 화살표가 저장이됩니다.
+
+      obj2.name = "임";
+      console.log(obj1.name);
+      console.log(obj2);
+    </script>
+
+    <script>
+      var obj3 = { name: "이" };
+      let obj4 = { name: "이" };
+
+      console.log(이름1 == 이름2); //화살표를 저장했기 때문에 false가 나온다.
+
+      function 변경(obj) {
+        obj = { name: "Park" };
+      }
+      변경(obj3);
+      console.log(obj3.name);
+    </script>
+  </body>
+</html>
