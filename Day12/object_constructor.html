@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오브젝트 생성기계 만들기</title>
+  </head>
+  <body>
+    <!-- //constructor 문법의 용도
+    //-object를 마구 복사하고 싶을 떄 사용합니다. -->
+
+    <script>
+      //출석부 만들어보자
+      var 학생1 = {
+        name: "kim",
+        age: "15",
+        sayHi: function () {
+          console.log("안녕하세요. " + this.name + "입니다");
+        },
+      };
+
+      학생1.sayHi(); // 출력: 안녕하세요. kim입니다
+
+      // var 학생2 = {}
+      // var 학생3 = {}
+      // var 학생4 = {}
+      //보통 컨스트럭터로 만들때는 대문자로적는다!
+      학생1.sayHi(); //출력결과 안녕하세요 킴입니다.
+      function Constructor() {
+        this.name = "Kim"; //this로 새로생성되는 object를 뜻함
+        this.age = 15;
+        this.sayHi = function () {
+          console.log("안녕하세요. " + this.name + "입니다");
+        };
+      }
+      var 학생2 = new Constructor();
+      학생2.sayHi();
+    </script>
+
+    <script>
+      function 기계(이름) {
+        this.name = 이름; //this로 새로생성되는 object를 뜻함
+        this.age = 15;
+        this.sayHi = function () {
+          console.log("안녕하세요. " + this.name + "입니다");
+        };
+      }
+      기계("park");
+      var 학생2 = new 기계("park");
+      학생2.sayHi();
+    </script>
+  </body>
+</html>
