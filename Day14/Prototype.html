@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <h3>prototype은 유전자</h3>
+    <h2>부모 유전자 (부모의 prototype)을 검사하고싶으면 _proto_</h2>
+
+    <script>
+      var 부모 = { name: "kim" };
+      var 자식 = {};
+      // ___proto__ 이거 이용해서 강제 등록가능
+      자식.__proto__ = 부모;
+      자식.name;
+      console.log(자식.name);
+    </script>
+  </body>
+</html>

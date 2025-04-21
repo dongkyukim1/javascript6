@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>답</title>
+  </head>
+  <body>
+    <script>
+      //1번
+      function student(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayhello = function () {
+          console.log("안녕 나는" + this.name + " 입니다.");
+        };
+      }
+
+      var 학생1 = new student("kim", "20");
+      var 학생2 = new student("Park", "21");
+      var 학생3 = new student("Lee", "22");
+
+      학생1.sayhello();
+    </script>
+    <script>
+      //2번
+      function Parent() {
+        this.name = "Kim";
+      }
+      var a = new Parent(); // => a.name = 'Kim' 이 객체에 직접 들어감
+
+      a.__proto__.name = "Park"; // prototype에 name을 추가 (직접 x, 상속용)
+      console.log(a.name); // 출력 결과는?
+    </script>
+    <script>
+      //3번
+      function Student(이름, 나이) {
+        this.name = 이름;
+        this.age = 나이;
+      }
+
+      Student.prototype.sayHi = function () {
+        //에로우함수는 다른 함수야!
+        console.log("안녕 나는 " + this.name + "이야");
+      };
+
+      var 학생1 = new Student("Kim", 20);
+      학생1.sayHi();
+    </script>
+    <script>
+      Array.prototype.remove3 = function () {
+        for (let i = this.length - 1; i >= 0; i--) {
+          if (this[i] === 3) {
+            this.splice(i, 1);
+          }
+        }
+      };
+
+      var arr = new Array(1, 2, 3, 3, 4);
+      arr.remove3();
+      console.log(arr); // [1, 2, 4]
+    </script>
+  </body>
+</html>
