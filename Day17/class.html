@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상속기능</title>
+</head>
+<body>
+    <script>
+        class 부모{
+            constructor(name){
+                this.name = name;
+                //this.sayHi() = function(){
+                //    console.log('hi');
+                //} 여기 넣던가 -> 그냥 함수 추가
+            }
+            sayHi(){
+                console.log('hi'); //부모 prototype에 추가
+            }
+            sayBye(){
+                console.log('bye');
+            }
+        }
+        var 자식 = new 부모('park');
+        console.log(자식.name);
+        자식.sayHi();
+        자식.__proto__; //부모 유전자를 검사하고싶으면 _proto_
+        Object.getPrototypeOf(자식); //부모 유전자를 검사하고싶으면 _proto_
+        console.log(자식.__proto__.name);
+        console.log(자식.__proto__.sayHi());
+    </script>   
+</body>
+</html>
