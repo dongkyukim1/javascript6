@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 를 상속하는 extends</title>
+</head>
+<body>
+    <script>
+        class 할아버지{
+            constructor(name){
+                this.성 = 'park';
+                this.first_name = name;
+            }
+        }
+
+        class 아버지 extends 할아버지{
+            constructor(name){
+                super(name); //this 쓰면 안된다. 
+                //super() =  constructor(name){
+                //this.성 = 'park';
+                //this.first_name = name;
+                //}
+                this.나이=50;
+            }
+        }
+        var 아버지1 = new 아버지(); //파라미터 안쓰면 undefined
+        console.log(아버지1);
+    </script>
+</body>
+</html>
